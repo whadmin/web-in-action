@@ -1,4 +1,0 @@
--------------------------------------------------------------------------------
-Test set: com.wuhao.web.test.HttpClientUtilsTest
--------------------------------------------------------------------------------
-Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.704 s - in com.wuhao.web.test.HttpClientUtilsTest
