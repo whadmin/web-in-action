@@ -1,11 +1,16 @@
 package com.wuhao.web.servletNorm.servlet.thread;
 
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
+/**
+ * @author wuhao1
+ */
+@WebServlet(name="SafeServlet1",urlPatterns = {"/SafeServlet1"},loadOnStartup = 1)
 public class SafeServlet1 extends HttpServlet {
 
     int i = 1;

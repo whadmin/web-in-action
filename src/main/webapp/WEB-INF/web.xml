@@ -3,6 +3,15 @@
         "http://java.sun.com/dtd/web-app_2_3.dtd" >
 <web-app>
     <display-name>Archetype Created Web Application</display-name>
+
+    <!-- 配置WEB应用的初始化参数 -->
+         <context-param>
+            <param-name>url</param-name>
+            <param-value>jdbc:mysql://localhost:3306/test</param-value>
+
+      </context-param>
+
+
     <servlet>
         <servlet-name>lifeCycleServlet</servlet-name>
         <servlet-class>com.wuhao.web.servletNorm.servlet.LifeCycleServlet</servlet-class>
@@ -26,32 +35,37 @@
         </init-param>
     </servlet>
 
-    <!-- servletContext 例子 -->
+    <!--LocationServlet 例子
     <servlet>
-        <servlet-name>servletContextGetInitParam</servlet-name>
-        <servlet-class>com.wuhao.web.servletNorm.servlet.servletContext.ServletContextGetInitParam</servlet-class>
+        <servlet-name>LocationServlet</servlet-name>
+        <servlet-class>com.wuhao.web.servletNorm.http.head.response.LocationServlet</servlet-class>
     </servlet>
+    
+    <servlet-mapping>
+        <servlet-name>LocationServlet</servlet-name>
+        <url-pattern>/LocationServlet</url-pattern>
+    </servlet-mapping>
+    -->
+    <!-- servletcontext 例子 -->
 
-    <servlet>
-        <servlet-name>servletContextRequestForward</servlet-name>
-        <servlet-class>com.wuhao.web.servletNorm.servlet.servletContext.ServletContextRequestForward</servlet-class>
-    </servlet>
+
+
 
     <servlet>
         <servlet-name>servletContextSharedAttr1</servlet-name>
-        <servlet-class>com.wuhao.web.servletNorm.servlet.servletContext.ServletContextSharedAttr1</servlet-class>
+        <servlet-class>com.wuhao.web.servletNorm.servlet.servletcontext.ServletContextSharedAttr1</servlet-class>
     </servlet>
 
     <servlet>
         <servlet-name>servletContextSharedAttr2</servlet-name>
-        <servlet-class>com.wuhao.web.servletNorm.servlet.servletContext.ServletContextSharedAttr2</servlet-class>
+        <servlet-class>com.wuhao.web.servletNorm.servlet.servletcontext.ServletContextSharedAttr2</servlet-class>
     </servlet>
 
 
-    <!-- servletConfig 例子 -->
+    <!-- servletconfig 例子 -->
     <servlet>
-        <servlet-name>servletConfig</servlet-name>
-        <servlet-class>com.wuhao.web.servletNorm.servlet.servletConfig.ServletConfigServlet</servlet-class>
+        <servlet-name>InitServletConfig</servlet-name>
+        <servlet-class>com.wuhao.web.servletNorm.servlet.servletconfig.InitServletConfig</servlet-class>
         <init-param>
             <param-name>msg</param-name>
             <param-value>hello world</param-value>
@@ -69,40 +83,11 @@
         <load-on-startup>1</load-on-startup>
     </servlet>
 
-    <!-- Servlet 多线程问题-->
-    <servlet>
-        <servlet-name>safeServlet1</servlet-name>
-        <servlet-class>com.wuhao.web.servletNorm.servlet.thread.SafeServlet1</servlet-class>
-        <load-on-startup>1</load-on-startup>
-    </servlet>
-
-    <servlet>
-        <servlet-name>safeServlet2</servlet-name>
-        <servlet-class>com.wuhao.web.servletNorm.servlet.thread.SafeServlet2</servlet-class>
-        <load-on-startup>1</load-on-startup>
-    </servlet>
-
-    <servlet>
-        <servlet-name>unSafeServlet</servlet-name>
-        <servlet-class>com.wuhao.web.servletNorm.servlet.thread.UnSafeServlet</servlet-class>
-        <load-on-startup>1</load-on-startup>
-    </servlet>
-
-
     <servlet-mapping>
         <servlet-name>lifeCycleServlet</servlet-name>
         <url-pattern>/lifeCycleServlet</url-pattern>
     </servlet-mapping>
 
-    <servlet-mapping>
-        <servlet-name>servletContextGetInitParam</servlet-name>
-        <url-pattern>/servletContextGetInitParam</url-pattern>
-    </servlet-mapping>
-
-    <servlet-mapping>
-        <servlet-name>servletContextRequestForward</servlet-name>
-        <url-pattern>/servletContextRequestForward</url-pattern>
-    </servlet-mapping>
 
     <servlet-mapping>
         <servlet-name>servletContextSharedAttr1</servlet-name>
@@ -125,8 +110,8 @@
     </servlet-mapping>
 
     <servlet-mapping>
-        <servlet-name>servletConfig</servlet-name>
-        <url-pattern>/servletConfig</url-pattern>
+        <servlet-name>InitServletConfig</servlet-name>
+        <url-pattern>/InitServletConfig</url-pattern>
     </servlet-mapping>
 
 
@@ -135,18 +120,7 @@
         <url-pattern>/configurationServletForXml</url-pattern>
     </servlet-mapping>
 
-    <servlet-mapping>
-        <servlet-name>safeServlet1</servlet-name>
-        <url-pattern>/safeServlet1</url-pattern>
-    </servlet-mapping>
 
-    <servlet-mapping>
-        <servlet-name>safeServlet2</servlet-name>
-        <url-pattern>/safeServlet2</url-pattern>
-    </servlet-mapping>
 
-    <servlet-mapping>
-        <servlet-name>unSafeServlet</servlet-name>
-        <url-pattern>/unSafeServlet</url-pattern>
-    </servlet-mapping>
+
 </web-app>

@@ -1,14 +1,26 @@
-package com.wuhao.web.servletNorm.servlet.servletConfig;
+package com.wuhao.web.servletNorm.servlet.servletconfig;
 
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebInitParam;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.Enumeration;
 
-public class ServletConfigServlet extends HttpServlet {
+/**
+ * @author wuhao1
+ */
+@WebServlet(
+        name = "InitServletConfig",
+        urlPatterns = {"/InitServletConfig"},
+        initParams = {
+                @WebInitParam(name = "data", value = "config"),
+                @WebInitParam(name = "server", value = "2.2.2")
+        })
+public class InitServletConfig extends HttpServlet {
 
     /**
      * 定义ServletConfig对象来接收配置的初始化参数
@@ -31,13 +43,14 @@ public class ServletConfigServlet extends HttpServlet {
     public void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         //获取在web.xml中配置的初始化参数
-        String paramVal = this.config.getInitParameter("name");//获取指定的初始化参数
+        //获取指定的初始化参数
+        String paramVal = this.config.getInitParameter("name");
         response.getWriter().print(paramVal);
 
         response.getWriter().print("<hr/>");
         //获取所有的初始化参数
         Enumeration<String> e = config.getInitParameterNames();
-        while(e.hasMoreElements()){
+        while (e.hasMoreElements()) {
             String name = e.nextElement();
             String value = config.getInitParameter(name);
             response.getWriter().print(name + "=" + value + "<br/>");

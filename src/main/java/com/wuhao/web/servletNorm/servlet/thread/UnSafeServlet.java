@@ -2,6 +2,7 @@ package com.wuhao.web.servletNorm.servlet.thread;
 
 
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -15,7 +16,9 @@ import java.io.IOException;
  * 解决方式
  * 1  加锁
  * 2 不使用servlet成员变量做业务处理，而使用局部变量
+ * @author wuhao1
  */
+@WebServlet(name="UnSafeServlet",urlPatterns = {"/UnSafeServlet"},loadOnStartup = 1)
 public class UnSafeServlet extends HttpServlet {
 
         int i=1;
